@@ -1,4 +1,4 @@
-# 3d-blender-hylang
+# docker-blender-hy
 > Everything you can imagine is real.
 
 Control Blender using Hy!
@@ -52,7 +52,7 @@ $ make image
 ...
 
 # Or, build directly:
-$ cd 3d-blender-hylang
+$ cd docker-blender-hy
 $ docker build -t blender-hy .
 ...
 ```
@@ -69,7 +69,7 @@ Distributed under the MIT license. See ``LICENSE.txt`` for more information.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and [Conventional Commit Messages](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#summary).
 
-[https://github.com/jakebrinkmann/3d-blender-hylang](https://github.com/jakebrinkmann/3d-blender-hylang)
+[https://github.com/jakebrinkmann/docker-blender-hy](https://github.com/jakebrinkmann/docker-blender-hy)
 
 ---
 ---
