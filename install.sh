@@ -5,7 +5,7 @@ apt-get update --assume-yes
 
 # Install our dependencies
 apt-get install --assume-yes \
-        blender=2.79.b \
+        blender=2.79.b+dfsg0-1~deb9u1 \
         python3-pip=9.0.1-2
 
 # TODO: use pipenv?
