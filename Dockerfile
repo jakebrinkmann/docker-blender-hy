@@ -18,6 +18,21 @@ RUN apt-get update -y \
   && chmod +x su-exec \
   && mv su-exec /usr/bin/su-exec
 
+# --------------------------------------------------
+# Final runtime environment
+FROM $BASEIMG:$BASEVER
+COPY --from=builder /usr/bin/su-exec /usr/bin/su-exec
+
+# Install some required build tools
+RUN apt-get update -y \
+  && apt-get install -y sudo
+
+# Create a super-user, name which defaults to udocker
+ARG SUPER_USERNAME=udocker
+RUN useradd -m $SUPER_USERNAME -u 1000 -s /bin/bash \
+  && echo "$SUPER_USER_NAME ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/$SUPER_USERNAME \
+  && chmod 0440 /etc/sudoers.d/$SUPER_USERNAME
+
 WORKDIR /tmp
 COPY install.sh /tmp/install.sh
 RUN ./install.sh
