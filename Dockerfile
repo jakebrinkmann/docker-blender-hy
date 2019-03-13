@@ -33,7 +33,15 @@ RUN useradd -m $SUPER_USERNAME -u 1000 -s /bin/bash \
   && echo "$SUPER_USER_NAME ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/$SUPER_USERNAME \
   && chmod 0440 /etc/sudoers.d/$SUPER_USERNAME
 
+# Install our required tools/libraries
 WORKDIR /tmp
-COPY install.sh /tmp/install.sh
-RUN ./install.sh
+COPY install.sh .
+RUN ./install.sh \
+  && rm -rf /tmp/*
 
+# Work out of a known location in /opt
+# (expectation that source code will be mounted
+#  read-only into here)
+WORKDIR /opt/blender-hy
+ENV SUPER_USERNAME=$SUPER_USERNAME
+ENTRYPOINT [ "su-exec", "$SUPER_USERNAME:1000", "hy", "hello-world.hy" ]
