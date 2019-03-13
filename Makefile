@@ -7,4 +7,4 @@ image: Dockerfile install.sh   # Build the docker image
 	@docker build \
 	        -t $(PKGNAME):$(PKGVERSION) \
 	        -f ./Dockerfile \
-	        $(CWDIR)
+	        $(CURDIR)
