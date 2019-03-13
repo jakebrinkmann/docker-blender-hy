@@ -1,6 +1,7 @@
 # Runtime environment for Blender+Hylang
 # TODO: can I use alpine?
-FROM debian:stretch
+ARG BASEIMG=debian
+ARG BASEVER=stretch
 
 WORKDIR /tmp
 COPY install.sh /tmp/install.sh
