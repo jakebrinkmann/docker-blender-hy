@@ -9,5 +9,5 @@ apt-get install --assume-yes \
         python3-pip=9.0.1-2
 
 # TODO: use pipenv?
-pip install --no-cache \
-    hylang==0.16.0
+pip3 install --no-cache \
+    hy==0.16.0
